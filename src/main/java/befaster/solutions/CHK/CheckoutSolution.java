@@ -19,6 +19,14 @@ public class CheckoutSolution {
 		
 	}
 	
+	Integer calculateItemTotal(String itemCode, int count) {
+		if (checkSpecialOffer(itemCode)) {
+			return calculateSpecialOfferItem(itemCode, count);
+		} else {
+			return addSingleItem(itemCode, count);
+		}
+	}
+	
 	boolean checkSpecialOffer(String itemCode) {
 		return specialOffers.containsKey(itemCode); 					
 	}
