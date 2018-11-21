@@ -9,6 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class HelloSolutionTest {
+	
+	HelloSolution helloSolution;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,15 +22,17 @@ public class HelloSolutionTest {
 
 	@Before
 	public void setUp() throws Exception {
+		helloSolution = new HelloSolution();
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		helloSolution = null;
 	}
 
 	@Test
-	public void testHello() {
-		fail("Not yet implemented");
+	public void testToCheckReturnedMessage() {
+		assertTrue(helloSolution.hello("World") instanceof String);
 	}
 
 }
