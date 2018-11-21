@@ -97,6 +97,11 @@ public class CheckoutSolutionTest {
 		assertEquals(Integer.valueOf(2), testItemAndCountMap.get("D"));
 	}
 	
+	@Test
+	public void testToCheckTotalCheckoutAmountWithMultipleItems() {
+		assertEquals(Integer.valueOf(210), checkoutSolution.checkout("AAABCDD"));
+	}
+	
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
