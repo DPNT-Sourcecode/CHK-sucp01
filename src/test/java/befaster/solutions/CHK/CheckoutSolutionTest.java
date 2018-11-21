@@ -92,6 +92,9 @@ public class CheckoutSolutionTest {
 	public void testToCheckItemAndCountMapGenerationFromString() {
 		Map<String, Integer> testItemAndCountMap = checkoutSolution.getItemAndCountMapFromString("AAABCDD");
 		assertEquals(Integer.valueOf(3), testItemAndCountMap.get("A"));
+		assertEquals(Integer.valueOf(1), testItemAndCountMap.get("B"));
+		assertEquals(Integer.valueOf(1), testItemAndCountMap.get("C"));
+		assertEquals(Integer.valueOf(2), testItemAndCountMap.get("D"));
 	}
 	
 //	@Test
