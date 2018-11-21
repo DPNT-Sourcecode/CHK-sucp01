@@ -9,6 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CheckoutSolutionTest {
+	
+	CheckoutSolution checkoutSolution;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,15 +22,23 @@ public class CheckoutSolutionTest {
 
 	@Before
 	public void setUp() throws Exception {
+		checkoutSolution = new CheckoutSolution();
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		checkoutSolution = null;
 	}
 
+	@Test
+	public void testToCheckInvalidInputWithNull() {
+		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout(null));
+	}
+	/*
 	@Test
 	public void test() {
 		fail("Not yet implemented");
 	}
+	*/
 
 }
