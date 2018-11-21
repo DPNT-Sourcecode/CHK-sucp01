@@ -23,6 +23,10 @@ public class CheckoutSolution {
 		return specialOffers.containsKey(itemCode); 					
 	}
 	
+	Integer[] getSpecialOfferCountAndAmount(String itemCode) {
+		return specialOffers.get(itemCode);
+	}
+	
 	Integer addSingleItem(String itemCode, int count) {
 		Integer itemPrice = itemPriceMap.get(itemCode);
 		return itemPrice * count;

@@ -50,6 +50,13 @@ public class CheckoutSolutionTest {
 		assertFalse(checkoutSolution.checkSpecialOffer("C"));
 	}
 	
+	@Test
+	public void testToCheckItemSpecialOfferCountAndAmount() {
+		Integer[] testCountAndAmount = checkoutSolution.getSpecialOfferCountAndAmount("A"); 
+		assertEquals(Integer.valueOf(3), testCountAndAmount[0]);
+		assertEquals(Integer.valueOf(130), testCountAndAmount[1]);
+	}
+	
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
