@@ -76,7 +76,9 @@ public class CheckoutSolution {
         	Map<String, Integer> itemAndCountMap = getItemAndCountMapFromString(skus);
         	Set<String> itemKeys = itemAndCountMap.keySet();
         	for (String itemKey : itemKeys) {
-        		total += calculateItemTotal(itemKey, itemAndCountMap.get(itemKey));
+        		if (itemPriceMap.containsKey(itemKey)) {        			
+        			total += calculateItemTotal(itemKey, itemAndCountMap.get(itemKey));
+        		}
         	}
         	return total;
         } else {

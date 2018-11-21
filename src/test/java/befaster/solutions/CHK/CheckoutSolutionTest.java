@@ -102,6 +102,11 @@ public class CheckoutSolutionTest {
 		assertEquals(Integer.valueOf(210), checkoutSolution.checkout("AAABCDD"));
 	}
 	
+	@Test
+	public void testToCheckTotalCheckoutAmountWithMultipleItemsAndInvalidChar() {
+		assertEquals(Integer.valueOf(210), checkoutSolution.checkout("AAABCDDa"));
+	}
+	
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
