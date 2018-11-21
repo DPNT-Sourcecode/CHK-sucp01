@@ -36,8 +36,8 @@ public class CheckoutSolutionTest {
 	}
 	
 	@Test
-	public void testToCheckInvalidInputWit() {
-		
+	public void testToCheckBasicAdditionOfSingleItem() {
+		assertEquals(Integer.valueOf(100), checkoutSolution.addSingleItem("A", 2));
 	}
 	/*
 	@Test
