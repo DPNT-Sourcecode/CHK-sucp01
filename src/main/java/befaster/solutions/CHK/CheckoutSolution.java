@@ -19,6 +19,10 @@ public class CheckoutSolution {
 		
 	}
 	
+	public boolean checkSpecialOffer(String itemCode) {
+		
+	}
+	
 	public Integer addSingleItem(String itemCode, int count) {
 		Integer itemPrice = itemPriceMap.get(itemCode);
 		return itemPrice * count;
