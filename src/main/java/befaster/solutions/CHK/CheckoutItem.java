@@ -4,23 +4,16 @@ import java.util.Map;
 
 public class CheckoutItem {
 	
-	private String id;
 	private Integer price;
 	private Map<Integer, Integer> specialOfferCountAndAmount;
 	private String getOneFreeItem;
 
-	public CheckoutItem(String id, 
-						Integer price, 
+	public CheckoutItem(Integer price, 
 						Map<Integer, Integer> specialOfferCountAndAmount,
 						String getOneFreeItem) {
-		this.id = id;
 		this.price = price;
 		this.specialOfferCountAndAmount = specialOfferCountAndAmount;
 		this.getOneFreeItem = getOneFreeItem;
-	}
-
-	public String getId() {
-		return id;
 	}
 
 	public Integer getPrice() {
@@ -40,7 +33,6 @@ public class CheckoutItem {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((getOneFreeItem == null) ? 0 : getOneFreeItem.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + ((specialOfferCountAndAmount == null) ? 0 : specialOfferCountAndAmount.hashCode());
 		return result;
@@ -59,11 +51,6 @@ public class CheckoutItem {
 			if (other.getOneFreeItem != null)
 				return false;
 		} else if (!getOneFreeItem.equals(other.getOneFreeItem))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
 			return false;
 		if (price == null) {
 			if (other.price != null)
