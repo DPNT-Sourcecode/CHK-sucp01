@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import befaster.runner.SolutionNotImplementedException;
 
@@ -71,7 +72,13 @@ public class CheckoutSolution {
 	
     public Integer checkout(String skus) {
         if (skus instanceof String) {
-        	return Integer.valueOf(0);
+        	Integer total = 0;
+        	Map<String, Integer> itemAndCountMap = getItemAndCountMapFromString(skus);
+        	Set<String> itemKeys = itemAndCountMap.keySet();
+        	for (String itemKey : itemKeys) {
+        		total += calculateItemTotal(itemKey, itemAndCountMap.get(itemKey));
+        	}
+        	return total;
         } else {
         	return Integer.valueOf(-1);        	
         }
