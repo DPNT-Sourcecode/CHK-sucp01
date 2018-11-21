@@ -71,7 +71,7 @@ public class CheckoutSolution {
 	}
 	
     public Integer checkout(String skus) {
-        if (skus instanceof String) {
+        if (skus instanceof String && skus.matches("([A-D])+")) {
         	Integer total = 0;
         	Map<String, Integer> itemAndCountMap = getItemAndCountMapFromString(skus);
         	Set<String> itemKeys = itemAndCountMap.keySet();
