@@ -19,11 +19,11 @@ public class CheckoutSolution {
 		
 	}
 	
-	public boolean checkSpecialOffer(String itemCode) {
-		
+	boolean checkSpecialOffer(String itemCode) {
+		return specialOffers.containsKey(itemCode); 					
 	}
 	
-	public Integer addSingleItem(String itemCode, int count) {
+	Integer addSingleItem(String itemCode, int count) {
 		Integer itemPrice = itemPriceMap.get(itemCode);
 		return itemPrice * count;
 	}

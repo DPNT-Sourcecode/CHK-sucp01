@@ -41,9 +41,14 @@ public class CheckoutSolutionTest {
 	}
 	
 	@Test
-	public void testToCheckSpecialOfferOnSingleItem() {
-		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
+	public void testToCheckItemHasSpecialOfferWhenTrue() {
+		assertTrue(checkoutSolution.checkSpecialOffer("A"));
 	}
+	
+//	@Test
+//	public void testToCheckSpecialOfferOnSingleItem() {
+//		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
+//	}
 	/*
 	@Test
 	public void test() {
