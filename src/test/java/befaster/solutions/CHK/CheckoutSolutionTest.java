@@ -31,13 +31,13 @@ public class CheckoutSolutionTest {
 	}
 
 	@Test
-	public void testToCheckInvalidInputWithNull() {
+	public void testToCheckCheckoutInvalidInputWithNull() {
 		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout(null));
 	}
 	
 	@Test
 	public void testToCheckInvalidInputWit() {
-		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout(null));
+		
 	}
 	/*
 	@Test
