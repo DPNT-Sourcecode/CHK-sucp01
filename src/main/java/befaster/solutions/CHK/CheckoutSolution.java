@@ -24,7 +24,7 @@ public class CheckoutSolution {
 		Map<String, Integer> itemAndCountMap = new HashMap<String, Integer>();
 		for (int i = 0; i < itemString.length(); i++) {
 			char currentChar = itemString.charAt(i);
-			if (null == itemAndCountMap.get(currentChar)) {				
+			if (null != itemAndCountMap.get(currentChar)) {				
 				itemAndCountMap.put("" + currentChar, itemAndCountMap.get(currentChar) + 1);
 			} else {
 				itemAndCountMap.put("" + currentChar, 1);
