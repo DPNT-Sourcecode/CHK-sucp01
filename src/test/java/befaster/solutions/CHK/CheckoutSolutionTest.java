@@ -34,6 +34,11 @@ public class CheckoutSolutionTest {
 	public void testToCheckInvalidInputWithNull() {
 		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout(null));
 	}
+	
+	@Test
+	public void testToCheckInvalidInputWit() {
+		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout(null));
+	}
 	/*
 	@Test
 	public void test() {

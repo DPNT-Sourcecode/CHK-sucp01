@@ -9,6 +9,10 @@ public class CheckoutSolution {
 	}
 	
     public Integer checkout(String skus) {
-        throw new SolutionNotImplementedException();
+        if (skus instanceof String) {
+        	return Integer.valueOf(0);
+        } else {
+        	return Integer.valueOf(-1);        	
+        }
     }
 }
