@@ -9,6 +9,12 @@ public class HelloSolution {
 	}
 	
     public String hello(String friendName) {
-        return "Hello, World!";
+    	//Using StringBuilder to make execution consistent across JVMs
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("Hello, ");
+    	sb.append(friendName);
+    	sb.append("!");
+    	return sb.toString();
+
     }
 }

@@ -39,5 +39,10 @@ public class HelloSolutionTest {
 	public void testToCheckHelloWorldMessage() {
 		assertTrue(helloSolution.hello("World").equals("Hello, World!"));
 	}
+	
+	@Test
+	public void testToCheckHelloFriendMessage() {
+		assertTrue(helloSolution.hello("John").equals("Hello, John!"));
+	}
 
 }
