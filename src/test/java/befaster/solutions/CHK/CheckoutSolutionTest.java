@@ -112,6 +112,10 @@ public class CheckoutSolutionTest {
 		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout("AAABCDD-"));
 	}
 	
+	@Test
+	public void testToCheckTotalCheckoutReturnsZeroWithEmptyString() {
+		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout(""));
+	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));

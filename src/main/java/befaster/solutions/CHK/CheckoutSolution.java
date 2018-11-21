@@ -81,7 +81,9 @@ public class CheckoutSolution {
         		}
         	}
         	return total;
-        } else {
+        } else if ("".equals(skus)) {
+        	return Integer.valueOf(0);
+    	} else {
         	return Integer.valueOf(-1);        	
         }
     }
