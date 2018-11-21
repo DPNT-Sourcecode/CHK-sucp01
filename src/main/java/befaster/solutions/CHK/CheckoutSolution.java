@@ -27,6 +27,20 @@ public class CheckoutSolution {
 		return specialOffers.get(itemCode);
 	}
 	
+	Integer calculateSpecialOfferItem(String itemCode, int count) {
+		Integer total = 0;
+		Integer[] itemOfferCountAndAmount = getSpecialOfferCountAndAmount(itemCode);
+		if (count >= itemOfferCountAndAmount[0]) {
+			Integer remainder = count % itemOfferCountAndAmount[0];
+			Integer offerCount = count - remainder;
+			total += offerCount * itemOfferCountAndAmount[1];
+			total += addSingleItem(itemCode, remainder);
+		} else {
+			total += addSingleItem(itemCode, count);  
+		}
+		return total;
+	}
+	
 	Integer addSingleItem(String itemCode, int count) {
 		Integer itemPrice = itemPriceMap.get(itemCode);
 		return itemPrice * count;

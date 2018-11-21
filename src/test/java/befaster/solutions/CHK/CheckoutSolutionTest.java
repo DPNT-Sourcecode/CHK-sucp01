@@ -57,6 +57,11 @@ public class CheckoutSolutionTest {
 		assertEquals(Integer.valueOf(130), testCountAndAmount[1]);
 	}
 	
+	@Test
+	public void testToCheckSpecialOfferCalculationWith3ItemA() {
+		assertEquals(Integer.valueOf(130), checkoutSolution.calculateSpecialOfferItem("A", 3));
+	}
+	
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
