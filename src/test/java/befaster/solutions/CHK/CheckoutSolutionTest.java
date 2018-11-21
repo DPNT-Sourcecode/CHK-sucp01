@@ -39,6 +39,11 @@ public class CheckoutSolutionTest {
 	public void testToCheckBasicAdditionOfSingleItem() {
 		assertEquals(Integer.valueOf(100), checkoutSolution.addSingleItem("A", 2));
 	}
+	
+	@Test
+	public void testToCheckSpecialOfferOnSingleItem() {
+		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
+	}
 	/*
 	@Test
 	public void test() {
