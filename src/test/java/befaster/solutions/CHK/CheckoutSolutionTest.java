@@ -2,6 +2,8 @@ package befaster.solutions.CHK;
 
 import static org.junit.Assert.*;
 
+import java.util.Map;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -84,6 +86,12 @@ public class CheckoutSolutionTest {
 	@Test
 	public void testToCheckSpecialOfferItemTotalCalculationWithNonSpecialOffer() {
 		assertEquals(Integer.valueOf(80), checkoutSolution.calculateItemTotal("C", 4));
+	}
+	
+	@Test
+	public void testToCheckItemAndCountMapGenerationFromString() {
+		Map<String, Integer> testItemAndCountMap = checkoutSolution.getItemAndCountMapFromString("AAABCDD");
+		assertEquals(Integer.valueOf(3), testItemAndCountMap.get("A"));
 	}
 	
 //	@Test
