@@ -103,8 +103,13 @@ public class CheckoutSolutionTest {
 	}
 	
 	@Test
-	public void testToCheckTotalCheckoutAmountWithMultipleItemsAndInvalidChar() {
-		assertEquals(Integer.valueOf(210), checkoutSolution.checkout("AAABCDDa"));
+	public void testToCheckTotalCheckoutReturnsMinusOneWithMultipleItemsAndInvalidChar() {
+		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout("AAABCDDa"));
+	}
+	
+	@Test
+	public void testToCheckTotalCheckoutReturnsMinusOneWithMultipleItemsAndNonAlphaChar() {
+		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout("AAABCDD-"));
 	}
 	
 //	@Test
