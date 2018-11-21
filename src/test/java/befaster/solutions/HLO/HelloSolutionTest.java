@@ -34,5 +34,10 @@ public class HelloSolutionTest {
 	public void testToCheckReturnedMessage() {
 		assertTrue(helloSolution.hello("World") instanceof String);
 	}
+	
+	@Test
+	public void testToCheckHelloWorldMessage() {
+		assertTrue(helloSolution.hello("World").equals("Hello, World!"));
+	}
 
 }
