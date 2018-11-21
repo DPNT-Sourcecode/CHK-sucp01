@@ -24,10 +24,11 @@ public class CheckoutSolution {
 		Map<String, Integer> itemAndCountMap = new HashMap<String, Integer>();
 		for (int i = 0; i < itemString.length(); i++) {
 			char currentChar = itemString.charAt(i);
-			if (null != itemAndCountMap.get(currentChar)) {				
-				itemAndCountMap.put("" + currentChar, itemAndCountMap.get(currentChar) + 1);
+			String charString = "" + currentChar;
+			if (null != itemAndCountMap.get(charString)) {				
+				itemAndCountMap.put(charString, itemAndCountMap.get(charString) + 1);
 			} else {
-				itemAndCountMap.put("" + currentChar, 1);
+				itemAndCountMap.put(charString, 1);
 			}
 		}
 		return itemAndCountMap;
