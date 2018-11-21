@@ -32,7 +32,7 @@ public class CheckoutSolution {
 		Integer[] itemOfferCountAndAmount = getSpecialOfferCountAndAmount(itemCode);
 		if (count >= itemOfferCountAndAmount[0]) {
 			Integer remainder = count % itemOfferCountAndAmount[0];
-			Integer offerCount = count - remainder;
+			Integer offerCount = (count - remainder) / itemOfferCountAndAmount[0];
 			total += offerCount * itemOfferCountAndAmount[1];
 			total += addSingleItem(itemCode, remainder);
 		} else {

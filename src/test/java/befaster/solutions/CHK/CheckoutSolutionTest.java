@@ -58,8 +58,22 @@ public class CheckoutSolutionTest {
 	}
 	
 	@Test
+	public void testToCheckSpecialOfferCalculationWith2ItemA() {
+		assertEquals(Integer.valueOf(100), checkoutSolution.calculateSpecialOfferItem("A", 2));
+	}
+	
+	@Test
 	public void testToCheckSpecialOfferCalculationWith3ItemA() {
 		assertEquals(Integer.valueOf(130), checkoutSolution.calculateSpecialOfferItem("A", 3));
+	}
+	
+	@Test
+	public void testToCheckSpecialOfferCalculationWith6ItemA() {
+		assertEquals(Integer.valueOf(260), checkoutSolution.calculateSpecialOfferItem("A", 6));
+	}
+	
+	public void testToCheckSpecialOfferCalculationWith7ItemA() {
+		assertEquals(Integer.valueOf(310), checkoutSolution.calculateSpecialOfferItem("A", 7));
 	}
 	
 //	@Test
