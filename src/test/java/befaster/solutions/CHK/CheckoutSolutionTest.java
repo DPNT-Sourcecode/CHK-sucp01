@@ -149,6 +149,11 @@ public class CheckoutSolutionTest {
 	}
 	
 	@Test
+	public void testToCheckTotalCheckoutReturns145WithASBTXC() {
+		assertEquals(Integer.valueOf(145), checkoutSolution.checkout("ASBTXC"));
+	}
+	
+	@Test
 	public void testToCheckTotalCheckoutReturnsMinusOneWithMultipleItemsAndInvalidChar() {
 		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout("AAABCDDa"));
 	}
