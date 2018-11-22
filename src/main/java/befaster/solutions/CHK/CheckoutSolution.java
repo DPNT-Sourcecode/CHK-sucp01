@@ -145,7 +145,7 @@ public class CheckoutSolution {
 	}
 	
     public Integer checkout(String skus) {
-        if (skus instanceof String && skus.matches("([A-F])+")) {
+        if (skus instanceof String && skus.matches("([A-Z])+")) {
         	Integer total = 0;
         	skus = doGetOneFree(skus);
         	Map<String, Integer> itemAndCountMap = getItemAndCountMapFromString(skus);
