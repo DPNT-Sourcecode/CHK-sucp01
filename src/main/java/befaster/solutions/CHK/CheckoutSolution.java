@@ -68,6 +68,7 @@ public class CheckoutSolution {
 				newSkus = newSkus.replaceFirst("" + itemsToRemove.charAt(i), "");
 			}
 			result.put(newSkus, total);
+			total = 0;
 			String y = "";
 			
 		}

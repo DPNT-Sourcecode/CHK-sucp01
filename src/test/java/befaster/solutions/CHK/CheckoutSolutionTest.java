@@ -209,6 +209,15 @@ public class CheckoutSolutionTest {
 			assertEquals(Integer.valueOf(45), result.get(key));			
 		}
 	}
+	
+	@Test
+	public void testToCheckGroupDiscountis45With4Items() {
+		Map<String, Integer> result = checkoutSolution.doGroupDiscounts("ASBTXCY");
+		for (String key: result.keySet()) {
+			assertEquals("ABCY", key);
+			assertEquals(Integer.valueOf(45), result.get(key));			
+		}
+	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
