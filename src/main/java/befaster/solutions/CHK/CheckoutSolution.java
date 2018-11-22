@@ -46,6 +46,16 @@ public class CheckoutSolution {
 		return newSkus;
 	}
 	
+	boolean triggerisAllSameItem(String itemCode, String trigger) {
+		char[] triggerArray = trigger.toCharArray();
+		for (char c : triggerArray) {
+			if (!itemCode.equals("" + c)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	Map<String, Integer> getItemAndCountMapFromString(String itemString) {
 		Map<String, Integer> itemAndCountMap = new HashMap<String, Integer>();
 		for (int i = 0; i < itemString.length(); i++) {
