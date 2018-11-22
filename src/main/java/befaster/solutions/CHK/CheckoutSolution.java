@@ -46,9 +46,13 @@ public class CheckoutSolution {
 						for (String match : matches) {
 							amountCheck = amountCheck + trigger;
 						}
-						for (int i = 0; i < matches.size() - 1; i++) {
-							newSkus = newSkus.replaceFirst(priceMapKey, "");
-						}
+						String amountCheckSkus = newSkus.replaceFirst(amountCheck, "");
+						// --------------------------
+						Integer remainingItems = getRemainingItems(priceMapKey, amountCheckSkus);
+						// --------------------------
+//						for (int i = 0; i < matches.size() - 1; i++) {
+//							newSkus = newSkus.replaceFirst(priceMapKey, "");
+//						}
 					} else {							
 						for (String match : matches) {
 							newSkus = newSkus.replaceFirst(priceMapKey, "");
@@ -62,6 +66,21 @@ public class CheckoutSolution {
 		}
 		return newSkus;
 	}
+	
+	//------------------
+	
+	Integer getRemainingItems(String itemCode, String skus) {
+		Integer remainingItems = 0;
+		char[] skusArray = skus.toCharArray();
+		for (char c : skusArray) {
+			if (itemCode.equals("" + c)) {
+				remainingItems++;
+			}
+		}
+		return remainingItems;
+	}
+	
+	//------------------
 	
 	boolean triggerisAllSameItemAsKey(String itemCode, String trigger) {
 		char[] triggerArray = trigger.toCharArray();
