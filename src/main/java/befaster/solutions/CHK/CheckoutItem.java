@@ -8,21 +8,18 @@ public class CheckoutItem {
 	private Integer price;
 	private Integer[] specialOfferCounts;
 	private Integer[] specialOfferAmounts;
-	private Integer getOneFreeTriggerCount;
-	private String getOneFreeItem;
+	private String getOneFreeTrigger;
 	
 	public CheckoutItem(Integer price, 
 						Integer[] specialOfferCounts,
 						Integer[] specialOfferAmounts,
-						Integer getOneFreeTriggerCount,
-						String getOneFreeItem) {
+						String getOneFreeTrigger) {
 			this.price = price;
 			this.specialOfferCounts = specialOfferCounts;
 			this.specialOfferAmounts = specialOfferAmounts;
-			this.getOneFreeTriggerCount = getOneFreeTriggerCount;
-			this.getOneFreeItem = getOneFreeItem;
+			this.getOneFreeTrigger = getOneFreeTrigger;
 	}
-	
+
 	public Integer getPrice() {
 		return price;
 	}
@@ -34,21 +31,16 @@ public class CheckoutItem {
 	public Integer[] getSpecialOfferAmounts() {
 		return specialOfferAmounts;
 	}
-	
-	public Integer getGetOneFreeTriggerCount() {
-		return getOneFreeTriggerCount;
-	}
 
-	public String getGetOneFreeItem() {
-		return getOneFreeItem;
+	public String getGetOneFreeTrigger() {
+		return getOneFreeTrigger;
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((getOneFreeItem == null) ? 0 : getOneFreeItem.hashCode());
+		result = prime * result + ((getOneFreeTrigger == null) ? 0 : getOneFreeTrigger.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + Arrays.hashCode(specialOfferAmounts);
 		result = prime * result + Arrays.hashCode(specialOfferCounts);
@@ -64,10 +56,10 @@ public class CheckoutItem {
 		if (getClass() != obj.getClass())
 			return false;
 		CheckoutItem other = (CheckoutItem) obj;
-		if (getOneFreeItem == null) {
-			if (other.getOneFreeItem != null)
+		if (getOneFreeTrigger == null) {
+			if (other.getOneFreeTrigger != null)
 				return false;
-		} else if (!getOneFreeItem.equals(other.getOneFreeItem))
+		} else if (!getOneFreeTrigger.equals(other.getOneFreeTrigger))
 			return false;
 		if (price == null) {
 			if (other.price != null)
@@ -80,4 +72,6 @@ public class CheckoutItem {
 			return false;
 		return true;
 	}
+	
+	
 }
