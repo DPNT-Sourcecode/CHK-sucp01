@@ -42,7 +42,9 @@ public class CheckoutSolution {
 						matches.add(trigger);
 					}
 					if (triggerisAllSameItemAsKey(priceMapKey, trigger)) {		
-								
+						for (int i = 0; i < matches.size() - 1; i++) {
+							newSkus = newSkus.replaceFirst(priceMapKey, "");
+						}
 					} else {							
 						for (String match : matches) {
 							newSkus = newSkus.replaceFirst(priceMapKey, "");
