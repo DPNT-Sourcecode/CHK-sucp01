@@ -1,32 +1,41 @@
 package befaster.solutions.CHK;
 
+import java.util.Arrays;
 import java.util.Map;
 
 public class CheckoutItem {
 	
 	private Integer price;
-	private Map<Integer, Integer> specialOfferCountAndAmount;
+	private Integer[] specialOfferCounts;
+	private Integer[] specialOfferAmounts;
 	private String getOneFreeItem;
-
+	
 	public CheckoutItem(Integer price, 
-						Map<Integer, Integer> specialOfferCountAndAmount,
+						Integer[] specialOfferCounts,
+						Integer[] specialOfferAmounts,
 						String getOneFreeItem) {
-		this.price = price;
-		this.specialOfferCountAndAmount = specialOfferCountAndAmount;
-		this.getOneFreeItem = getOneFreeItem;
+			this.price = price;
+			this.specialOfferCounts = specialOfferCounts;
+			this.specialOfferAmounts = specialOfferAmounts;
+			this.getOneFreeItem = getOneFreeItem;
 	}
-
+	
 	public Integer getPrice() {
 		return price;
 	}
 
-	public Map<Integer, Integer> getSpecialOfferCountAndAmount() {
-		return specialOfferCountAndAmount;
+	public Integer[] getSpecialOfferCounts() {
+		return specialOfferCounts;
+	}
+
+	public Integer[] getSpecialOfferAmounts() {
+		return specialOfferAmounts;
 	}
 
 	public String getGetOneFreeItem() {
 		return getOneFreeItem;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -34,7 +43,8 @@ public class CheckoutItem {
 		int result = 1;
 		result = prime * result + ((getOneFreeItem == null) ? 0 : getOneFreeItem.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		result = prime * result + ((specialOfferCountAndAmount == null) ? 0 : specialOfferCountAndAmount.hashCode());
+		result = prime * result + Arrays.hashCode(specialOfferAmounts);
+		result = prime * result + Arrays.hashCode(specialOfferCounts);
 		return result;
 	}
 
@@ -57,12 +67,10 @@ public class CheckoutItem {
 				return false;
 		} else if (!price.equals(other.price))
 			return false;
-		if (specialOfferCountAndAmount == null) {
-			if (other.specialOfferCountAndAmount != null)
-				return false;
-		} else if (!specialOfferCountAndAmount.equals(other.specialOfferCountAndAmount))
+		if (!Arrays.equals(specialOfferAmounts, other.specialOfferAmounts))
+			return false;
+		if (!Arrays.equals(specialOfferCounts, other.specialOfferCounts))
 			return false;
 		return true;
 	}
-
 }
