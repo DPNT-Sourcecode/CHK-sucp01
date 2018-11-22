@@ -42,6 +42,10 @@ public class CheckoutSolution {
 						matches.add(trigger);
 					}
 					if (triggerisAllSameItemAsKey(priceMapKey, trigger)) {		
+						String amountCheck = "";
+						for (String match : matches) {
+							amountCheck = amountCheck + trigger;
+						}
 						for (int i = 0; i < matches.size() - 1; i++) {
 							newSkus = newSkus.replaceFirst(priceMapKey, "");
 						}
