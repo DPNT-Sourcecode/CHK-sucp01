@@ -76,6 +76,18 @@ public class CheckoutSolution {
 		
 	}
 	
+	String getShortestStringFromSet(Set stringSet) {
+		String[] stringArray = (String[]) stringSet.toArray(new String[stringSet.size()]);
+		List<String> stringList = Arrays.asList(stringArray);
+		String shortest = stringList.get(0);
+		for (String string : stringList) {
+			if (string.length() < shortest.length()) {
+				shortest = string;
+			}
+		}
+		return shortest;
+	}
+	
 	String doGetOneFree(String skus) {
 		char[] skuCharArray = skus.toCharArray();
 		Arrays.sort(skuCharArray);

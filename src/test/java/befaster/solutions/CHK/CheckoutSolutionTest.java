@@ -2,7 +2,9 @@ package befaster.solutions.CHK;
 
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -226,6 +228,16 @@ public class CheckoutSolutionTest {
 			assertEquals("ABCD", key);
 			assertEquals(Integer.valueOf(90), result.get(key));			
 		}
+	}
+	
+	@Test
+	public void testToCheckShortestStringFromSet() {
+		Set<String> testSet = new HashSet<String>();
+		testSet.add("ABCD");
+		testSet.add("ABC");
+		testSet.add("ABCDE");
+		assertEquals("ABC", checkoutSolution.getShortestStringFromSet(testSet));
+		
 	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
