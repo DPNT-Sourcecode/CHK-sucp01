@@ -19,7 +19,7 @@ public class CheckoutSolution {
 		itemPriceMap.put("C", new CheckoutItem(20, null, null, null));
 		itemPriceMap.put("D", new CheckoutItem(15, null, null, null));
 		itemPriceMap.put("E", new CheckoutItem(40, null, null, null));
-		itemPriceMap.put("F", new CheckoutItem(40, null, null, "FF"));
+		itemPriceMap.put("F", new CheckoutItem(10, null, null, "FF"));
 	}
 	
 	String doGetOneFree(String skus) {
