@@ -13,16 +13,16 @@ public class CheckoutSolution {
 	private HashMap<String, CheckoutItem> itemPriceMap = new HashMap<String, CheckoutItem>();
 	
 	public CheckoutSolution() {
-		itemPriceMap.put("A", new CheckoutItem(50, new Integer[]{3}, new Integer[]{130}, null));
-		itemPriceMap.put("B", new CheckoutItem(30, new Integer[]{2}, new Integer[]{45}, null));
-		itemPriceMap.put("C", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("D", new CheckoutItem(15, null, null, null));
-		itemPriceMap.put("E", new CheckoutItem(15, null, null, null));
-		itemPriceMap.put("B", 30);
-		itemPriceMap.put("C", 20);
-		itemPriceMap.put("D", 15);
-		specialOffers.put("A", new Integer[]{3, 130});
-		specialOffers.put("B", new Integer[]{2, 45});
+		itemPriceMap.put("A", new CheckoutItem(50, new Integer[]{3}, new Integer[]{130}, null, null));
+		itemPriceMap.put("B", new CheckoutItem(30, new Integer[]{2}, new Integer[]{45}, null, null));
+		itemPriceMap.put("C", new CheckoutItem(20, null, null, null, null));
+		itemPriceMap.put("D", new CheckoutItem(15, null, null, null, null));
+		itemPriceMap.put("E", new CheckoutItem(15, null, null, 2, "B"));
+//		itemPriceMap.put("B", 30);
+//		itemPriceMap.put("C", 20);
+//		itemPriceMap.put("D", 15);
+//		specialOffers.put("A", new Integer[]{3, 130});
+//		specialOffers.put("B", new Integer[]{2, 45});
 		
 	}
 	
@@ -49,30 +49,38 @@ public class CheckoutSolution {
 	}
 	
 	boolean checkSpecialOffer(String itemCode) {
-		return specialOffers.containsKey(itemCode); 					
+		CheckoutItem item = itemPriceMap.get(itemCode);
+		return (null != item.getSpecialOfferCounts());  					
 	}
 	
-	Integer[] getSpecialOfferCountAndAmount(String itemCode) {
-		return specialOffers.get(itemCode);
+	Integer[] getSpecialOfferCounts(String itemCode) {
+		CheckoutItem item = itemPriceMap.get(itemCode);
+		return item.getSpecialOfferCounts();
+	}
+	
+	Integer[] getSpecialOfferAmounts(String itemCode) {
+		CheckoutItem item = itemPriceMap.get(itemCode);
+		return item.getSpecialOfferCounts();
 	}
 	
 	Integer calculateSpecialOfferItem(String itemCode, int count) {
 		Integer total = 0;
-		Integer[] itemOfferCountAndAmount = getSpecialOfferCountAndAmount(itemCode);
-		if (count >= itemOfferCountAndAmount[0]) {
-			Integer remainder = count % itemOfferCountAndAmount[0];
-			Integer offerCount = (count - remainder) / itemOfferCountAndAmount[0];
-			total += offerCount * itemOfferCountAndAmount[1];
-			total += addSingleItem(itemCode, remainder);
-		} else {
-			total += addSingleItem(itemCode, count);  
-		}
+		Integer[] itemOfferCounts = getSpecialOfferCounts(itemCode);
+		Integer[] itemOfferAmounts = getSpecialOfferAmounts(itemCode);
+//		if (count >= itemOfferCountAndAmount[0]) {
+//			Integer remainder = count % itemOfferCountAndAmount[0];
+//			Integer offerCount = (count - remainder) / itemOfferCountAndAmount[0];
+//			total += offerCount * itemOfferCountAndAmount[1];
+//			total += addSingleItem(itemCode, remainder);
+//		} else {
+//			total += addSingleItem(itemCode, count);  
+//		}
 		return total;
 	}
 	
 	Integer addSingleItem(String itemCode, int count) {
-		Integer itemPrice = itemPriceMap.get(itemCode);
-		return itemPrice * count;
+		CheckoutItem item = itemPriceMap.get(itemCode);		
+		return item.getPrice() * count;
 	}
 	
     public Integer checkout(String skus) {
