@@ -8,15 +8,18 @@ public class CheckoutItem {
 	private Integer price;
 	private Integer[] specialOfferCounts;
 	private Integer[] specialOfferAmounts;
+	private Integer getOneFreeTriggerCount;
 	private String getOneFreeItem;
 	
 	public CheckoutItem(Integer price, 
 						Integer[] specialOfferCounts,
 						Integer[] specialOfferAmounts,
+						Integer getOneFreeTriggerCount,
 						String getOneFreeItem) {
 			this.price = price;
 			this.specialOfferCounts = specialOfferCounts;
 			this.specialOfferAmounts = specialOfferAmounts;
+			this.getOneFreeTriggerCount = getOneFreeTriggerCount;
 			this.getOneFreeItem = getOneFreeItem;
 	}
 	
