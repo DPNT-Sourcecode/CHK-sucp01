@@ -34,6 +34,10 @@ public class CheckoutItem {
 	public Integer[] getSpecialOfferAmounts() {
 		return specialOfferAmounts;
 	}
+	
+	public Integer getGetOneFreeTriggerCount() {
+		return getOneFreeTriggerCount;
+	}
 
 	public String getGetOneFreeItem() {
 		return getOneFreeItem;

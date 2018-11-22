@@ -8,8 +8,6 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
 	
-//	private HashMap<String, Integer> itemPriceMap = new HashMap<String, Integer>();
-//	private HashMap<String, Integer[]> specialOffers = new HashMap<String, Integer[]>();
 	private HashMap<String, CheckoutItem> itemPriceMap = new HashMap<String, CheckoutItem>();
 	
 	public CheckoutSolution() {
@@ -17,13 +15,12 @@ public class CheckoutSolution {
 		itemPriceMap.put("B", new CheckoutItem(30, new Integer[]{2}, new Integer[]{45}, null, null));
 		itemPriceMap.put("C", new CheckoutItem(20, null, null, null, null));
 		itemPriceMap.put("D", new CheckoutItem(15, null, null, null, null));
-		itemPriceMap.put("E", new CheckoutItem(15, null, null, 2, "B"));
-//		itemPriceMap.put("B", 30);
-//		itemPriceMap.put("C", 20);
-//		itemPriceMap.put("D", 15);
-//		specialOffers.put("A", new Integer[]{3, 130});
-//		specialOffers.put("B", new Integer[]{2, 45});
-		
+		itemPriceMap.put("E", new CheckoutItem(15, null, null, 2, "B"));		
+	}
+	
+	boolean checkGetOneFree(String itemCode) {
+		CheckoutItem item = itemPriceMap.get(itemCode);
+		return (null != item.getGetOneFreeItem());
 	}
 	
 	Map<String, Integer> getItemAndCountMapFromString(String itemString) {
@@ -75,14 +72,6 @@ public class CheckoutSolution {
 			}
 		}
 		total += addSingleItem(itemCode, count);
-//		if (count >= itemOfferCountAndAmount[0]) {
-//			Integer remainder = count % itemOfferCountAndAmount[0];
-//			Integer offerCount = (count - remainder) / itemOfferCountAndAmount[0];
-//			total += offerCount * itemOfferCountAndAmount[1];
-//			total += addSingleItem(itemCode, remainder);
-//		} else {
-//			total += addSingleItem(itemCode, count);  
-//		}
 		return total;
 	}
 	
