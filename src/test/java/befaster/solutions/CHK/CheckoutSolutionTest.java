@@ -127,6 +127,26 @@ public class CheckoutSolutionTest {
 	}
 	
 	@Test
+	public void testToCheckTotalCheckoutReturns20WithFFF() {
+		assertEquals(Integer.valueOf(20), checkoutSolution.checkout("FFF"));
+	}
+	
+	@Test
+	public void testToCheckTotalCheckoutReturns30WithFFFF() {
+		assertEquals(Integer.valueOf(30), checkoutSolution.checkout("FFFF"));
+	}
+	
+	@Test
+	public void testToCheckTotalCheckoutReturns40WithFFFFF() {
+		assertEquals(Integer.valueOf(40), checkoutSolution.checkout("FFFFF"));
+	}
+	
+	@Test
+	public void testToCheckTotalCheckoutReturns40WithFFFFFF() {
+		assertEquals(Integer.valueOf(40), checkoutSolution.checkout("FFFFFF"));
+	}
+	
+	@Test
 	public void testToCheckTotalCheckoutReturnsMinusOneWithMultipleItemsAndInvalidChar() {
 		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout("AAABCDDa"));
 	}
