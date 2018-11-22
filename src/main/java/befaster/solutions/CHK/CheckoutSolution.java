@@ -99,8 +99,9 @@ public class CheckoutSolution {
 	}
 	
     public Integer checkout(String skus) {
-        if (skus instanceof String && skus.matches("([A-D])+")) {
+        if (skus instanceof String && skus.matches("([A-E])+")) {
         	Integer total = 0;
+        	skus = doGetOneFree(skus);
         	Map<String, Integer> itemAndCountMap = getItemAndCountMapFromString(skus);
         	Set<String> itemKeys = itemAndCountMap.keySet();
         	for (String itemKey : itemKeys) {
