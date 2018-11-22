@@ -154,6 +154,11 @@ public class CheckoutSolutionTest {
 	}
 	
 	@Test
+	public void testToCheckTotalCheckoutReturns65WithSSSZ() {
+		assertEquals(Integer.valueOf(65), checkoutSolution.checkout("SSSZ"));
+	}
+	
+	@Test
 	public void testToCheckTotalCheckoutReturnsMinusOneWithMultipleItemsAndInvalidChar() {
 		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout("AAABCDDa"));
 	}
