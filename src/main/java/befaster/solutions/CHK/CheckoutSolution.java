@@ -42,17 +42,7 @@ public class CheckoutSolution {
 						matches.add(trigger);
 					}
 					if (triggerisAllSameItemAsKey(priceMapKey, trigger)) {		
-						String amountCheck = "";
-						for (String match : matches) {
-							amountCheck = amountCheck + trigger;
-						}
-						String amountCheckSkus = newSkus.replaceFirst(amountCheck, "");
-						// --------------------------
-						Integer remainingItems = getRemainingItems(priceMapKey, amountCheckSkus);
-						// --------------------------
-//						for (int i = 0; i < matches.size() - 1; i++) {
-//							newSkus = newSkus.replaceFirst(priceMapKey, "");
-//						}
+						newSkus = newSkus.replaceAll(priceMapKey + trigger, trigger);
 					} else {							
 						for (String match : matches) {
 							newSkus = newSkus.replaceFirst(priceMapKey, "");
