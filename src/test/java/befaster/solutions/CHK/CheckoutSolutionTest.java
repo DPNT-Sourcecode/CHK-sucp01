@@ -122,6 +122,11 @@ public class CheckoutSolutionTest {
 	}
 	
 	@Test
+	public void testToCheckTotalCheckoutReturns20WithFF() {
+		assertEquals(Integer.valueOf(20), checkoutSolution.checkout("FF"));
+	}
+	
+	@Test
 	public void testToCheckTotalCheckoutReturnsMinusOneWithMultipleItemsAndInvalidChar() {
 		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout("AAABCDDa"));
 	}
