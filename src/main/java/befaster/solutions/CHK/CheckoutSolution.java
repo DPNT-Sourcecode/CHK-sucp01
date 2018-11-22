@@ -49,17 +49,29 @@ public class CheckoutSolution {
 	}
 	
 	Map<String, Integer> doGroupDiscounts(String skus) {
-		String newSkus = "";
+		String newSkus = skus;
 		Integer total = 0;
+		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		for (String groupDiscountKey : groupDiscountMap.keySet()) {
 			String pattern = "([" + groupDiscountKey + "])+";
 			List<String> matches = new ArrayList<String>();
-			Matcher matcher = Pattern.compile(trigger).matcher(sortedSkus);
+			Matcher matcher = Pattern.compile(pattern).matcher(newSkus);
 			while (matcher.find()) {
-				matches.add(trigger);
+				matches.add(matcher.group());
 			}
+			String matchesString = String.join("", matches);
+			Integer totalMultiplier = (int) Math.floor(matchesString.length() / 3);
+			Integer numberOfItemsToRemove = 3 * totalMultiplier;
+			String itemsToRemove = matchesString.substring(0, numberOfItemsToRemove);
+			total += groupDiscountMap.get(groupDiscountKey) * totalMultiplier;
+			for (int i = 0; i < numberOfItemsToRemove; i++) {
+				newSkus = newSkus.replaceFirst("" + itemsToRemove.charAt(i), "");
+			}
+			result.put(newSkus, total);
+			String y = "";
 			
 		}
+		return result;
 		
 	}
 	
