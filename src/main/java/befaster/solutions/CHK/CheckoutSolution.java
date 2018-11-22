@@ -18,7 +18,8 @@ public class CheckoutSolution {
 		itemPriceMap.put("B", new CheckoutItem(30, new Integer[]{2}, new Integer[]{45}, "EE"));
 		itemPriceMap.put("C", new CheckoutItem(20, null, null, null));
 		itemPriceMap.put("D", new CheckoutItem(15, null, null, null));
-		itemPriceMap.put("E", new CheckoutItem(40, null, null, null));		
+		itemPriceMap.put("E", new CheckoutItem(40, null, null, null));
+		itemPriceMap.put("F", new CheckoutItem(40, null, null, "FF"));
 	}
 	
 	String doGetOneFree(String skus) {
@@ -103,7 +104,7 @@ public class CheckoutSolution {
 	}
 	
     public Integer checkout(String skus) {
-        if (skus instanceof String && skus.matches("([A-E])+")) {
+        if (skus instanceof String && skus.matches("([A-F])+")) {
         	Integer total = 0;
         	skus = doGetOneFree(skus);
         	Map<String, Integer> itemAndCountMap = getItemAndCountMapFromString(skus);
