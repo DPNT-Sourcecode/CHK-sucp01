@@ -36,14 +36,14 @@ public class CheckoutSolution {
 		itemPriceMap.put("P", new CheckoutItem(50, new Integer[]{5}, new Integer[]{200}, null));
 		itemPriceMap.put("Q", new CheckoutItem(30, new Integer[]{3}, new Integer[]{80}, "RRR"));
 		itemPriceMap.put("R", new CheckoutItem(50, null, null, null));
-		itemPriceMap.put("S", new CheckoutItem(30, null, null, null));
+		itemPriceMap.put("S", new CheckoutItem(20, null, null, null));
 		itemPriceMap.put("T", new CheckoutItem(20, null, null, null));
 		itemPriceMap.put("U", new CheckoutItem(40, null, null, "UUU"));
 		itemPriceMap.put("V", new CheckoutItem(50, new Integer[]{3, 2}, new Integer[]{130, 90}, null));
 		itemPriceMap.put("W", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("X", new CheckoutItem(90, null, null, null));
-		itemPriceMap.put("Y", new CheckoutItem(10, null, null, null));
-		itemPriceMap.put("Z", new CheckoutItem(50, null, null, null));
+		itemPriceMap.put("X", new CheckoutItem(17, null, null, null));
+		itemPriceMap.put("Y", new CheckoutItem(20, null, null, null));
+		itemPriceMap.put("Z", new CheckoutItem(21, null, null, null));
 		
 		groupDiscountMap.put("STXYZ", 45);
 	}
@@ -191,6 +191,12 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
         if (skus instanceof String && skus.matches("([A-Z])+")) {
         	Integer total = 0;
+        	Map<String, Integer> groupDiscountResult = doGroupDiscounts(skus);
+        	for (Integer groupTotal : groupDiscountResult.values()) {
+        		total += groupTotal;
+        	}
+        	Set<String> groupDiscountSkuSet = groupDiscountResult.keySet();
+        	skus = getShortestStringFromSet(groupDiscountSkuSet);
         	skus = doGetOneFree(skus);
         	Map<String, Integer> itemAndCountMap = getItemAndCountMapFromString(skus);
         	Set<String> itemKeys = itemAndCountMap.keySet();
