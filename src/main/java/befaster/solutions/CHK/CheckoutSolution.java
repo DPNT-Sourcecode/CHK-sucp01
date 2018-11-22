@@ -14,6 +14,8 @@ import befaster.runner.SolutionNotImplementedException;
 public class CheckoutSolution {
 	
 	private HashMap<String, CheckoutItem> itemPriceMap = new HashMap<String, CheckoutItem>();
+	//Group discount - any 3 of STXYZ for 45
+	private HashMap<String, Integer> groupDiscountMap = new HashMap<String, Integer>();
 	
 	public CheckoutSolution() {
 		itemPriceMap.put("A", new CheckoutItem(50, new Integer[]{5, 3}, new Integer[]{200, 130}, null));
@@ -26,7 +28,7 @@ public class CheckoutSolution {
 		itemPriceMap.put("H", new CheckoutItem(10, new Integer[]{10, 5}, new Integer[]{80, 45}, null));
 		itemPriceMap.put("I", new CheckoutItem(35, null, null, null));
 		itemPriceMap.put("J", new CheckoutItem(60, null, null, null));
-		itemPriceMap.put("K", new CheckoutItem(80, new Integer[]{2}, new Integer[]{150}, null));
+		itemPriceMap.put("K", new CheckoutItem(70, new Integer[]{2}, new Integer[]{120}, null));
 		itemPriceMap.put("L", new CheckoutItem(90, null, null, null));
 		itemPriceMap.put("M", new CheckoutItem(15, null, null, "NNN"));
 		itemPriceMap.put("N", new CheckoutItem(40, null, null, null));
@@ -42,6 +44,22 @@ public class CheckoutSolution {
 		itemPriceMap.put("X", new CheckoutItem(90, null, null, null));
 		itemPriceMap.put("Y", new CheckoutItem(10, null, null, null));
 		itemPriceMap.put("Z", new CheckoutItem(50, null, null, null));
+		
+		groupDiscountMap.put("STXYZ", 45);
+	}
+	
+	Map<String, Integer> doGroupDiscounts(String skus) {
+		String newSkus = "";
+		Integer total = 0;
+		for (String groupDiscountKeys : groupDiscountMap.keySet()) {
+			List<String> matches = new ArrayList<String>();
+			Matcher matcher = Pattern.compile(trigger).matcher(sortedSkus);
+			while (matcher.find()) {
+				matches.add(trigger);
+			}
+			
+		}
+		
 	}
 	
 	String doGetOneFree(String skus) {
