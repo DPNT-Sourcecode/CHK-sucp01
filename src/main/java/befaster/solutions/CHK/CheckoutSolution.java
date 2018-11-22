@@ -8,12 +8,16 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
 	
-	private HashMap<String, Integer> itemPriceMap = new HashMap<String, Integer>();
-	private HashMap<String, Integer[]> specialOffers = new HashMap<String, Integer[]>();
-//	private HashMap<String, CheckoutItem> itemPriceMap = new HashMap<String, CheckoutItem>();
+//	private HashMap<String, Integer> itemPriceMap = new HashMap<String, Integer>();
+//	private HashMap<String, Integer[]> specialOffers = new HashMap<String, Integer[]>();
+	private HashMap<String, CheckoutItem> itemPriceMap = new HashMap<String, CheckoutItem>();
 	
 	public CheckoutSolution() {
-		itemPriceMap.put("A", 50);
+		itemPriceMap.put("A", new CheckoutItem(50, new Integer[]{3}, new Integer[]{130}, null));
+		itemPriceMap.put("B", new CheckoutItem(30, new Integer[]{2}, new Integer[]{45}, null));
+		itemPriceMap.put("C", new CheckoutItem(20, null, null, null));
+		itemPriceMap.put("D", new CheckoutItem(15, null, null, null));
+		itemPriceMap.put("E", new CheckoutItem(15, null, null, null));
 		itemPriceMap.put("B", 30);
 		itemPriceMap.put("C", 20);
 		itemPriceMap.put("D", 15);
