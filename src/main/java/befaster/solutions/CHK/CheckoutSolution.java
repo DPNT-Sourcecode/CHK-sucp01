@@ -13,7 +13,7 @@ public class CheckoutSolution {
 	private HashMap<String, CheckoutItem> itemPriceMap = new HashMap<String, CheckoutItem>();
 	
 	public CheckoutSolution() {
-		itemPriceMap.put("A", new CheckoutItem(50, new Integer[]{3}, new Integer[]{130}, null, null));
+		itemPriceMap.put("A", new CheckoutItem(50, new Integer[]{5, 3}, new Integer[]{200, 130}, null, null));
 		itemPriceMap.put("B", new CheckoutItem(30, new Integer[]{2}, new Integer[]{45}, null, null));
 		itemPriceMap.put("C", new CheckoutItem(20, null, null, null, null));
 		itemPriceMap.put("D", new CheckoutItem(15, null, null, null, null));
