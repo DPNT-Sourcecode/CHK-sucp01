@@ -22,6 +22,26 @@ public class CheckoutSolution {
 		itemPriceMap.put("D", new CheckoutItem(15, null, null, null));
 		itemPriceMap.put("E", new CheckoutItem(40, null, null, null));
 		itemPriceMap.put("F", new CheckoutItem(10, null, null, "FF"));
+		itemPriceMap.put("G", new CheckoutItem(20, null, null, null));
+		itemPriceMap.put("H", new CheckoutItem(10, new Integer[]{10, 5}, new Integer[]{80, 45}, null));
+		itemPriceMap.put("I", new CheckoutItem(35, null, null, null));
+		itemPriceMap.put("J", new CheckoutItem(60, null, null, null));
+		itemPriceMap.put("K", new CheckoutItem(80, new Integer[]{2}, new Integer[]{150}, null));
+		itemPriceMap.put("L", new CheckoutItem(90, null, null, null));
+		itemPriceMap.put("M", new CheckoutItem(15, null, null, "NNN"));
+		itemPriceMap.put("N", new CheckoutItem(40, null, null, null));
+		itemPriceMap.put("O", new CheckoutItem(10, null, null, null));
+		itemPriceMap.put("P", new CheckoutItem(50, new Integer[]{5}, new Integer[]{200}, null));
+		itemPriceMap.put("Q", new CheckoutItem(30, new Integer[]{3}, new Integer[]{8}, "RRR"));
+		itemPriceMap.put("R", new CheckoutItem(50, null, null, null));
+		itemPriceMap.put("S", new CheckoutItem(30, null, null, null));
+		itemPriceMap.put("T", new CheckoutItem(20, null, null, null));
+		itemPriceMap.put("U", new CheckoutItem(40, null, null, "UUU"));
+		itemPriceMap.put("V", new CheckoutItem(50, new Integer[]{3, 2}, new Integer[]{130, 90}, null));
+		itemPriceMap.put("W", new CheckoutItem(20, null, null, null));
+		itemPriceMap.put("X", new CheckoutItem(90, null, null, null));
+		itemPriceMap.put("Y", new CheckoutItem(10, null, null, null));
+		itemPriceMap.put("Z", new CheckoutItem(50, null, null, null));
 	}
 	
 	String doGetOneFree(String skus) {
