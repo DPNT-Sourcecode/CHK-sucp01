@@ -3,6 +3,8 @@ package befaster.solutions.CHK;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import befaster.runner.SolutionNotImplementedException;
 
@@ -24,21 +26,25 @@ public class CheckoutSolution {
 		for (String priceMapKey : priceMapKeys) {
 			CheckoutItem item = itemPriceMap.get(priceMapKey);
 			if (null != item.getGetOneFreeTrigger()) {
-				int triggerCount = 0;
+//				int triggerCount = 0;
 				String trigger = item.getGetOneFreeTrigger();
-				if (skus.contains(trigger)) {					
-					triggerCount++;
-					int triggerEndIndex =  skus.indexOf(trigger + (trigger.length()));
-					for (int i = triggerEndIndex; i < skus.length(); i++) {
-						String remainingSkus = skus.substring(i);
-						if (remainingSkus.contains(trigger)) {
-							triggerCount++;
-							i = skus.indexOf(trigger + trigger.length());
-						}
-					}
-					for (int i = 0; i < triggerCount; i++) {
+				if (skus.contains(trigger)) {
+					Matcher matcher = Pattern.compile(trigger).matcher(skus);
+					while (matcher.find()) {
 						newSkus = newSkus.replaceFirst(priceMapKey, "");
 					}
+//					triggerCount++;
+//					int triggerEndIndex =  skus.indexOf(trigger + (trigger.length()));
+//					for (int i = triggerEndIndex; i < skus.length(); i++) {
+//						String remainingSkus = skus.substring(i);
+//						if (remainingSkus.contains(trigger)) {
+//							triggerCount++;
+//							i = skus.indexOf(trigger + trigger.length());
+//						}
+//					}
+//					for (int i = 0; i < triggerCount; i++) {
+//						newSkus = newSkus.replaceFirst(priceMapKey, "");
+//					}
 				}
 					
 				
