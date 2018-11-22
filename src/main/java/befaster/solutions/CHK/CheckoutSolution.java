@@ -36,7 +36,11 @@ public class CheckoutSolution {
 				if (sortedSkus.contains(trigger)) {
 					Matcher matcher = Pattern.compile(trigger).matcher(sortedSkus);
 					while (matcher.find()) {
-						newSkus = newSkus.replaceFirst(priceMapKey, "");
+						if (triggerisAllSameItemAsKey(priceMapKey, trigger)) {
+							
+						} else {							
+							newSkus = newSkus.replaceFirst(priceMapKey, "");
+						}
 					}
 				}
 					
@@ -46,7 +50,7 @@ public class CheckoutSolution {
 		return newSkus;
 	}
 	
-	boolean triggerisAllSameItem(String itemCode, String trigger) {
+	boolean triggerisAllSameItemAsKey(String itemCode, String trigger) {
 		char[] triggerArray = trigger.toCharArray();
 		for (char c : triggerArray) {
 			if (!itemCode.equals("" + c)) {

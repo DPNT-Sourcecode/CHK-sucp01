@@ -173,12 +173,12 @@ public class CheckoutSolutionTest {
 	
 	@Test
 	public void testToCheckIsAllSameItemWhenTrue() {
-		assertTrue(checkoutSolution.triggerisAllSameItem("F", "FF"));
+		assertTrue(checkoutSolution.triggerisAllSameItemAsKey("F", "FF"));
 	}
 	
 	@Test
 	public void testToCheckIsAllSameItemWhenFalse() {
-		assertFalse(checkoutSolution.triggerisAllSameItem("F", "EF"));
+		assertFalse(checkoutSolution.triggerisAllSameItemAsKey("F", "EF"));
 	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
