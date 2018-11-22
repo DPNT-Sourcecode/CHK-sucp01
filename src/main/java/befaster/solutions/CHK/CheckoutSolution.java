@@ -1,5 +1,6 @@
 package befaster.solutions.CHK;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -21,14 +22,16 @@ public class CheckoutSolution {
 	}
 	
 	String doGetOneFree(String skus) {
-		String newSkus = skus;
+		char[] skuCharArray = skus.toCharArray();
+		Arrays.sort(skuCharArray);
+		String newSkus = new String(skuCharArray);
 		Set<String> priceMapKeys = itemPriceMap.keySet();
 		for (String priceMapKey : priceMapKeys) {
 			CheckoutItem item = itemPriceMap.get(priceMapKey);
 			if (null != item.getGetOneFreeTrigger()) {
 //				int triggerCount = 0;
 				String trigger = item.getGetOneFreeTrigger();
-				if (skus.contains(trigger)) {
+				if (newSkus.contains(trigger)) {
 					Matcher matcher = Pattern.compile(trigger).matcher(skus);
 					while (matcher.find()) {
 						newSkus = newSkus.replaceFirst(priceMapKey, "");
