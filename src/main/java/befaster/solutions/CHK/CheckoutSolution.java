@@ -33,18 +33,6 @@ public class CheckoutSolution {
 					while (matcher.find()) {
 						newSkus = newSkus.replaceFirst(priceMapKey, "");
 					}
-//					triggerCount++;
-//					int triggerEndIndex =  skus.indexOf(trigger + (trigger.length()));
-//					for (int i = triggerEndIndex; i < skus.length(); i++) {
-//						String remainingSkus = skus.substring(i);
-//						if (remainingSkus.contains(trigger)) {
-//							triggerCount++;
-//							i = skus.indexOf(trigger + trigger.length());
-//						}
-//					}
-//					for (int i = 0; i < triggerCount; i++) {
-//						newSkus = newSkus.replaceFirst(priceMapKey, "");
-//					}
 				}
 					
 				

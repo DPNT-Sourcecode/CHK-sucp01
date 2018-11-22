@@ -126,10 +126,10 @@ public class CheckoutSolutionTest {
 		assertEquals("EEEE", checkoutSolution.doGetOneFree("BBEEEE"));
 	}
 	
-//	@Test
-//	public void testToCheckDoGetOneFreeWithAABBCDEE() {
-//		assertEquals("BEE", checkoutSolution.doGetOneFree("BBEE"));
-//	}
+	@Test
+	public void testToCheckDoGetOneFreeWithAABBCDEE() {
+		assertEquals("AABCDEE", checkoutSolution.doGetOneFree("AABBCDEE"));
+	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
