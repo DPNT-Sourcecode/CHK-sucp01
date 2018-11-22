@@ -24,15 +24,16 @@ public class CheckoutSolution {
 	String doGetOneFree(String skus) {
 		char[] skuCharArray = skus.toCharArray();
 		Arrays.sort(skuCharArray);
-		String newSkus = new String(skuCharArray);
+		String sortedSkus = new String(skuCharArray);
+		String newSkus = sortedSkus;
 		Set<String> priceMapKeys = itemPriceMap.keySet();
 		for (String priceMapKey : priceMapKeys) {
 			CheckoutItem item = itemPriceMap.get(priceMapKey);
 			if (null != item.getGetOneFreeTrigger()) {
 //				int triggerCount = 0;
 				String trigger = item.getGetOneFreeTrigger();
-				if (newSkus.contains(trigger)) {
-					Matcher matcher = Pattern.compile(trigger).matcher(skus);
+				if (sortedSkus.contains(trigger)) {
+					Matcher matcher = Pattern.compile(trigger).matcher(sortedSkus);
 					while (matcher.find()) {
 						newSkus = newSkus.replaceFirst(priceMapKey, "");
 					}
