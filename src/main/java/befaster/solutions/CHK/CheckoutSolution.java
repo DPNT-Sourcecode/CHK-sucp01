@@ -32,7 +32,7 @@ public class CheckoutSolution {
 		itemPriceMap.put("N", new CheckoutItem(40, null, null, null));
 		itemPriceMap.put("O", new CheckoutItem(10, null, null, null));
 		itemPriceMap.put("P", new CheckoutItem(50, new Integer[]{5}, new Integer[]{200}, null));
-		itemPriceMap.put("Q", new CheckoutItem(30, new Integer[]{3}, new Integer[]{8}, "RRR"));
+		itemPriceMap.put("Q", new CheckoutItem(30, new Integer[]{3}, new Integer[]{80}, "RRR"));
 		itemPriceMap.put("R", new CheckoutItem(50, null, null, null));
 		itemPriceMap.put("S", new CheckoutItem(30, null, null, null));
 		itemPriceMap.put("T", new CheckoutItem(20, null, null, null));
