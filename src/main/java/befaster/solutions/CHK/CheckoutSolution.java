@@ -1,7 +1,9 @@
 package befaster.solutions.CHK;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -34,14 +36,19 @@ public class CheckoutSolution {
 //				int triggerCount = 0;
 				String trigger = item.getGetOneFreeTrigger();
 				if (sortedSkus.contains(trigger)) {
+					List<String> matches = new ArrayList<String>();
 					Matcher matcher = Pattern.compile(trigger).matcher(sortedSkus);
 					while (matcher.find()) {
-						if (triggerisAllSameItemAsKey(priceMapKey, trigger)) {
-							
-						} else {							
+						matches.add(trigger);
+					}
+					if (triggerisAllSameItemAsKey(priceMapKey, trigger)) {		
+								
+					} else {							
+						for (String match : matches) {
 							newSkus = newSkus.replaceFirst(priceMapKey, "");
 						}
 					}
+					
 				}
 					
 				
