@@ -19,7 +19,32 @@ public class CheckoutSolution {
 	}
 	
 	String doGetOneFree(String skus) {
-		
+		String newSkus = skus;
+		Set<String> priceMapKeys = itemPriceMap.keySet();
+		for (String priceMapKey : priceMapKeys) {
+			CheckoutItem item = itemPriceMap.get(priceMapKey);
+			if (null != item.getGetOneFreeTrigger()) {
+				int triggerCount = 0;
+				String trigger = item.getGetOneFreeTrigger();
+				if (skus.contains(trigger)) {					
+					triggerCount++;
+					int triggerEndIndex =  skus.indexOf(trigger + (trigger.length()));
+					for (int i = triggerEndIndex; i < skus.length(); i++) {
+						String remainingSkus = skus.substring(i);
+						if (remainingSkus.contains(trigger)) {
+							triggerCount++;
+							i = skus.indexOf(trigger + trigger.length());
+						}
+					}
+					for (int i = 0; i < triggerCount; i++) {
+						newSkus = newSkus.replaceFirst(priceMapKey, "");
+					}
+				}
+					
+				
+			}
+		}
+		return newSkus;
 	}
 	
 	Map<String, Integer> getItemAndCountMapFromString(String itemString) {
