@@ -110,6 +110,26 @@ public class CheckoutSolutionTest {
 	public void testToCheckTotalCheckoutReturnsZeroWithEmptyString() {
 		assertEquals(Integer.valueOf(0), checkoutSolution.checkout(""));
 	}
+	
+	@Test
+	public void testToCheckDoGetOneFreeWithBEE() {
+		assertEquals("EE", checkoutSolution.doGetOneFree("BEE"));
+	}
+	
+	@Test
+	public void testToCheckDoGetOneFreeWithBBEE() {
+		assertEquals("BEE", checkoutSolution.doGetOneFree("BBEE"));
+	}
+	
+	@Test
+	public void testToCheckDoGetOneFreeWithBBEEEE() {
+		assertEquals("EEEE", checkoutSolution.doGetOneFree("BBEEEE"));
+	}
+	
+//	@Test
+//	public void testToCheckDoGetOneFreeWithAABBCDEE() {
+//		assertEquals("BEE", checkoutSolution.doGetOneFree("BBEE"));
+//	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
