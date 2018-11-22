@@ -60,7 +60,7 @@ public class CheckoutSolution {
 	
 	Integer[] getSpecialOfferAmounts(String itemCode) {
 		CheckoutItem item = itemPriceMap.get(itemCode);
-		return item.getSpecialOfferCounts();
+		return item.getSpecialOfferAmounts();
 	}
 	
 	Integer calculateSpecialOfferItem(String itemCode, int count) {
