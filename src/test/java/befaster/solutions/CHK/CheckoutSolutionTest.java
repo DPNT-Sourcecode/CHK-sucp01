@@ -170,6 +170,16 @@ public class CheckoutSolutionTest {
 	public void testToCheckDoGetOneFreeWithFFFFF() {
 		assertEquals("FFF", checkoutSolution.doGetOneFree("FFFFF"));
 	}
+	
+	@Test
+	public void testToCheckIsAllSameItemWhenTrue() {
+		assertTrue(checkoutSolution.triggerisAllSameItem("F", "FF"));
+	}
+	
+	@Test
+	public void testToCheckIsAllSameItemWhenFalse() {
+		assertFalse(checkoutSolution.triggerisAllSameItem("F", "EF"));
+	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));
