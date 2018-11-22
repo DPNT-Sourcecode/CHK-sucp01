@@ -67,6 +67,14 @@ public class CheckoutSolution {
 		Integer total = 0;
 		Integer[] itemOfferCounts = getSpecialOfferCounts(itemCode);
 		Integer[] itemOfferAmounts = getSpecialOfferAmounts(itemCode);
+		for (int i = 0; i < itemOfferCounts.length; i++) {
+			Integer itemOfferCount = itemOfferCounts[i];
+			if (count >= itemOfferCount) {
+				total += itemOfferAmounts[i];
+				count = count - itemOfferCount;
+			}
+		}
+		total += addSingleItem(itemCode, count);
 //		if (count >= itemOfferCountAndAmount[0]) {
 //			Integer remainder = count % itemOfferCountAndAmount[0];
 //			Integer offerCount = (count - remainder) / itemOfferCountAndAmount[0];

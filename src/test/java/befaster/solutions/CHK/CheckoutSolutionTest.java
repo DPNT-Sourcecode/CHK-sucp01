@@ -52,12 +52,12 @@ public class CheckoutSolutionTest {
 		assertFalse(checkoutSolution.checkSpecialOffer("C"));
 	}
 	
-	@Test
-	public void testToCheckItemSpecialOfferCountAndAmount() {
-		Integer[] testCountAndAmount = checkoutSolution.getSpecialOfferCountAndAmount("A"); 
-		assertEquals(Integer.valueOf(3), testCountAndAmount[0]);
-		assertEquals(Integer.valueOf(130), testCountAndAmount[1]);
-	}
+//	@Test
+//	public void testToCheckItemSpecialOfferCountAndAmount() {
+//		Integer[] testCountAndAmount = checkoutSolution.getSpecialOfferCountAndAmount("A"); 
+//		assertEquals(Integer.valueOf(3), testCountAndAmount[0]);
+//		assertEquals(Integer.valueOf(130), testCountAndAmount[1]);
+//	}
 	
 	@Test
 	public void testToCheckSpecialOfferCalculationWith2ItemA() {
@@ -114,7 +114,7 @@ public class CheckoutSolutionTest {
 	
 	@Test
 	public void testToCheckTotalCheckoutReturnsZeroWithEmptyString() {
-		assertEquals(Integer.valueOf(-1), checkoutSolution.checkout(""));
+		assertEquals(Integer.valueOf(0), checkoutSolution.checkout(""));
 	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
