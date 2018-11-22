@@ -200,6 +200,15 @@ public class CheckoutSolutionTest {
 	public void testToCheckIsAllSameItemWhenFalse() {
 		assertFalse(checkoutSolution.triggerisAllSameItemAsKey("F", "EF"));
 	}
+	
+	@Test
+	public void testToCheckGroupDiscountis45With3Items() {
+		Map<String, Integer> result = checkoutSolution.doGroupDiscounts("ASBTXC");
+		for (String key: result.keySet()) {
+			assertEquals("ABC", key);
+			assertEquals(Integer.valueOf(45), result.get(key));			
+		}
+	}
 //	@Test
 //	public void testToCheckSpecialOfferOnSingleItem() {
 //		assertEquals(Integer.valueOf(130), checkoutSolution.addItems("A", 3));

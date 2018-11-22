@@ -51,7 +51,8 @@ public class CheckoutSolution {
 	Map<String, Integer> doGroupDiscounts(String skus) {
 		String newSkus = "";
 		Integer total = 0;
-		for (String groupDiscountKeys : groupDiscountMap.keySet()) {
+		for (String groupDiscountKey : groupDiscountMap.keySet()) {
+			String pattern = "([" + groupDiscountKey + "])+";
 			List<String> matches = new ArrayList<String>();
 			Matcher matcher = Pattern.compile(trigger).matcher(sortedSkus);
 			while (matcher.find()) {
