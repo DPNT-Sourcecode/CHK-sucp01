@@ -17,7 +17,7 @@ public class CheckoutSolution {
 		itemPriceMap.put("B", new CheckoutItem(30, new Integer[]{2}, new Integer[]{45}, "EE"));
 		itemPriceMap.put("C", new CheckoutItem(20, null, null, null));
 		itemPriceMap.put("D", new CheckoutItem(15, null, null, null));
-		itemPriceMap.put("E", new CheckoutItem(15, null, null, null));		
+		itemPriceMap.put("E", new CheckoutItem(40, null, null, null));		
 	}
 	
 	String doGetOneFree(String skus) {
