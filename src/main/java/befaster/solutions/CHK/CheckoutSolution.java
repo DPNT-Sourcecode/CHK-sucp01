@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,38 +19,47 @@ public class CheckoutSolution {
 	private HashMap<String, Integer> groupDiscountMap = new HashMap<String, Integer>();
 	
 	public CheckoutSolution() {
-		itemPriceMap.put("A", new CheckoutItem(50, new Integer[]{5, 3}, new Integer[]{200, 130}, null));
-		itemPriceMap.put("B", new CheckoutItem(30, new Integer[]{2}, new Integer[]{45}, "EE"));
-		itemPriceMap.put("C", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("D", new CheckoutItem(15, null, null, null));
-		itemPriceMap.put("E", new CheckoutItem(40, null, null, null));
-		itemPriceMap.put("F", new CheckoutItem(10, null, null, "FF"));
-		itemPriceMap.put("G", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("H", new CheckoutItem(10, new Integer[]{10, 5}, new Integer[]{80, 45}, null));
-		itemPriceMap.put("I", new CheckoutItem(35, null, null, null));
-		itemPriceMap.put("J", new CheckoutItem(60, null, null, null));
-		itemPriceMap.put("K", new CheckoutItem(70, new Integer[]{2}, new Integer[]{120}, null));
-		itemPriceMap.put("L", new CheckoutItem(90, null, null, null));
-		itemPriceMap.put("M", new CheckoutItem(15, null, null, "NNN"));
-		itemPriceMap.put("N", new CheckoutItem(40, null, null, null));
-		itemPriceMap.put("O", new CheckoutItem(10, null, null, null));
-		itemPriceMap.put("P", new CheckoutItem(50, new Integer[]{5}, new Integer[]{200}, null));
-		itemPriceMap.put("Q", new CheckoutItem(30, new Integer[]{3}, new Integer[]{80}, "RRR"));
-		itemPriceMap.put("R", new CheckoutItem(50, null, null, null));
-		itemPriceMap.put("S", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("T", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("U", new CheckoutItem(40, null, null, "UUU"));
-		itemPriceMap.put("V", new CheckoutItem(50, new Integer[]{3, 2}, new Integer[]{130, 90}, null));
-		itemPriceMap.put("W", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("X", new CheckoutItem(17, null, null, null));
-		itemPriceMap.put("Y", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("Z", new CheckoutItem(21, null, null, null));
+		itemPriceMap.put("A", new CheckoutItem("A", 50, new Integer[]{5, 3}, new Integer[]{200, 130}, null));
+		itemPriceMap.put("B", new CheckoutItem("B", 30, new Integer[]{2}, new Integer[]{45}, "EE"));
+		itemPriceMap.put("C", new CheckoutItem("C", 20, null, null, null));
+		itemPriceMap.put("D", new CheckoutItem("D", 15, null, null, null));
+		itemPriceMap.put("E", new CheckoutItem("E", 40, null, null, null));
+		itemPriceMap.put("F", new CheckoutItem("F", 10, null, null, "FF"));
+		itemPriceMap.put("G", new CheckoutItem("G", 20, null, null, null));
+		itemPriceMap.put("H", new CheckoutItem("H", 10, new Integer[]{10, 5}, new Integer[]{80, 45}, null));
+		itemPriceMap.put("I", new CheckoutItem("I", 35, null, null, null));
+		itemPriceMap.put("J", new CheckoutItem("J", 60, null, null, null));
+		itemPriceMap.put("K", new CheckoutItem("K", 70, new Integer[]{2}, new Integer[]{120}, null));
+		itemPriceMap.put("L", new CheckoutItem("L", 90, null, null, null));
+		itemPriceMap.put("M", new CheckoutItem("M", 15, null, null, "NNN"));
+		itemPriceMap.put("N", new CheckoutItem("N", 40, null, null, null));
+		itemPriceMap.put("O", new CheckoutItem("O", 10, null, null, null));
+		itemPriceMap.put("P", new CheckoutItem("P", 50, new Integer[]{5}, new Integer[]{200}, null));
+		itemPriceMap.put("Q", new CheckoutItem("Q", 30, new Integer[]{3}, new Integer[]{80}, "RRR"));
+		itemPriceMap.put("R", new CheckoutItem("R", 50, null, null, null));
+		itemPriceMap.put("S", new CheckoutItem("S", 20, null, null, null));
+		itemPriceMap.put("T", new CheckoutItem("T", 20, null, null, null));
+		itemPriceMap.put("U", new CheckoutItem("U", 40, null, null, "UUU"));
+		itemPriceMap.put("V", new CheckoutItem("V", 50, new Integer[]{3, 2}, new Integer[]{130, 90}, null));
+		itemPriceMap.put("W", new CheckoutItem("W", 20, null, null, null));
+		itemPriceMap.put("X", new CheckoutItem("X", 17, null, null, null));
+		itemPriceMap.put("Y", new CheckoutItem("Y", 20, null, null, null));
+		itemPriceMap.put("Z", new CheckoutItem("Z", 21, null, null, null));
 		
 		groupDiscountMap.put("ZSTYX", 45);
 	}
 	
 	Map<String, Integer> doGroupDiscounts(String skus) {
-		String newSkus = skus;
+		List<CheckoutItem> skuItems = new ArrayList<CheckoutItem>();
+		for (int i = 0; i < skus.length(); i++) {
+			skuItems.add(itemPriceMap.get(skus.indexOf(i)));
+		}
+		Collections.sort(skuItems);
+		StringBuilder sb = new StringBuilder(); 
+		for (CheckoutItem item : skuItems) {
+			sb.append(item.getId());
+		}		
+		String newSkus = sb.toString();
 		Integer total = 0;
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		for (String groupDiscountKey : groupDiscountMap.keySet()) {
