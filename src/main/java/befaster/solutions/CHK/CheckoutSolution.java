@@ -43,7 +43,7 @@ public class CheckoutSolution {
 		itemPriceMap.put("W", new CheckoutItem(20, null, null, null));
 		itemPriceMap.put("X", new CheckoutItem(17, null, null, null));
 		itemPriceMap.put("Y", new CheckoutItem(20, null, null, null));
-		itemPriceMap.put("Z", new CheckoutItem(20, null, null, null));
+		itemPriceMap.put("Z", new CheckoutItem(21, null, null, null));
 		
 		groupDiscountMap.put("STXYZ", 45);
 	}
