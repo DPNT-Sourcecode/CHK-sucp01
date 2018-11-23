@@ -3,14 +3,16 @@ package befaster.solutions.CHK;
 import java.util.Arrays;
 import java.util.Map;
 
-public class CheckoutItem {
+public class CheckoutItem implements Comparable<CheckoutItem> {
 	
+	private String id;
 	private Integer price;
 	private Integer[] specialOfferCounts;
 	private Integer[] specialOfferAmounts;
 	private String getOneFreeTrigger;
 	
-	public CheckoutItem(Integer price, 
+	public CheckoutItem(String id,
+						Integer price, 
 						Integer[] specialOfferCounts,
 						Integer[] specialOfferAmounts,
 						String getOneFreeTrigger) {
@@ -20,6 +22,10 @@ public class CheckoutItem {
 			this.getOneFreeTrigger = getOneFreeTrigger;
 	}
 
+	public String getId() {
+		return id;
+	}
+	
 	public Integer getPrice() {
 		return price;
 	}
@@ -34,6 +40,11 @@ public class CheckoutItem {
 
 	public String getGetOneFreeTrigger() {
 		return getOneFreeTrigger;
+	}
+	
+	public int compareTo(CheckoutItem compareItem) {
+		int comparePrice = compareItem.getPrice();
+		return comparePrice - this.price;
 	}
 
 	@Override
