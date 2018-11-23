@@ -16,6 +16,7 @@ public class CheckoutItem implements Comparable<CheckoutItem> {
 						Integer[] specialOfferCounts,
 						Integer[] specialOfferAmounts,
 						String getOneFreeTrigger) {
+			this.id = id;
 			this.price = price;
 			this.specialOfferCounts = specialOfferCounts;
 			this.specialOfferAmounts = specialOfferAmounts;

@@ -236,7 +236,7 @@ public class CheckoutSolutionTest {
 	public void testToCheckGroupDiscountis45With4Items() {
 		Map<String, Integer> result = checkoutSolution.doGroupDiscounts("ASBTXCY");
 		for (String key: result.keySet()) {
-			assertEquals("ABCY", key);
+			assertEquals("ABCX", key);
 			assertEquals(Integer.valueOf(45), result.get(key));			
 		}
 	}
