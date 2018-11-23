@@ -45,7 +45,7 @@ public class CheckoutSolution {
 		itemPriceMap.put("Y", new CheckoutItem(20, null, null, null));
 		itemPriceMap.put("Z", new CheckoutItem(21, null, null, null));
 		
-		groupDiscountMap.put("STXYZ", 45);
+		groupDiscountMap.put("ZSTYX", 45);
 	}
 	
 	Map<String, Integer> doGroupDiscounts(String skus) {
