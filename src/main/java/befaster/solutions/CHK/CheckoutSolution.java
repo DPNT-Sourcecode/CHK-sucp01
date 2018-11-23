@@ -52,7 +52,7 @@ public class CheckoutSolution {
 	Map<String, Integer> doGroupDiscounts(String skus) {
 		List<CheckoutItem> skuItems = new ArrayList<CheckoutItem>();
 		for (int i = 0; i < skus.length(); i++) {
-			skuItems.add(itemPriceMap.get(skus.indexOf(i)));
+			skuItems.add(itemPriceMap.get("" + skus.charAt(i)));
 		}
 		Collections.sort(skuItems);
 		StringBuilder sb = new StringBuilder(); 
